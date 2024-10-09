@@ -48,7 +48,7 @@
               <div class="menu-icon">🔔</div>
               <span class="menu-label">Notifications</span>
           </div>
-          <div class="menu-item">
+          <!-- <div class="menu-item">
               <div class="menu-icon">🧩</div>
               <span class="menu-label">Widgets</span>
               <span class="new-badge">NEW</span>
@@ -61,7 +61,7 @@
           <div class="menu-item">
               <div class="menu-icon">📚</div>
               <span class="menu-label">Docs</span>
-          </div>
+          </div> -->
           <div class="pro-button">Try CoreUI PRO</div>
       </div>
   
