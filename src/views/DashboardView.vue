@@ -62,7 +62,7 @@
               <div class="menu-icon">📚</div>
               <span class="menu-label">Docs</span>
           </div> -->
-          <div class="pro-button">Try CoreUI PRO</div>
+          <!-- <div class="pro-button">Try  PRO</div> -->
       </div>
   
       <RouterView />
@@ -77,6 +77,12 @@ body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+        }
+        a {
+          text-decoration: none;
+          color: white;
+          display: block;
+          font-size: 10%;
         }
         .sidebar {
             width: 250px;

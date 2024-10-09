@@ -9,7 +9,14 @@ import { onMounted, ref } from 'vue'
 const route = useRoute();
 const userId = ref(null);
 
+async function fetchUser() {
+  const resp = await fetch('../../assets/user-data.json')
+  console.log(await resp.json())
+  
+}
+
 onMounted(() => {
+  fetchUser()
   userId.value = route.params.id
   console.log(userId.value);
 })
