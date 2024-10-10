@@ -10,7 +10,7 @@
           <span>FOUND</span>
         </div>
       </div>
-      <button @click="goHome" class="home-button">GO BACK HOME</button>
+      <button @click="goHome" class="home-button">Retour</button>
     </div>
   </template>
   

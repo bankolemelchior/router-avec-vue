@@ -22,6 +22,16 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue'),
+      // beforeEnter: (to, from, next) => {
+      //   console.log("to", to);
+      //   console.log("from", from);
+      //   // console.log("next" next);
+      //   // if (userRole !== 'admin') {
+      //   //     next('/unauthorized'); // Redirection si l'utilisateur n'est pas administrateur
+      //   // } else {
+      //   //     next();
+      //   // }
+      // },
       children: [
         {
           path: '/users',
@@ -43,6 +53,8 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*', // Route catch-all
       component: () => import('../views/404NotFound.vue'),
+
+      // Route Catch-All : La route /:pathMatch(.*)* est définie en dernier pour s'assurer qu'elle ne capte que les routes qui ne correspondent à aucune des autres définitions. Cela garantit que toute URL non reconnue sera redirigée vers le composant NotFound.
   },
   ]
 })

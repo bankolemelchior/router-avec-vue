@@ -1,5 +1,27 @@
 <script setup>
+import {ref} from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter();
+
+const user = ref(null)
+const userEmail = ref('');
+const password = ref('');
+
+async function fetchUser() {
+  const resp = await fetch('/user-data.json');
+  const data = await resp.json();
+  console.log(data);
+  user.value = data.filter(el => el.email == userEmail.value)
+  console.log(user.value )
+  
+}
+
+function submit() {
+    console.log(userEmail.value);
+    router.push('/dashboard');
+    fetchUser();
+}
 
 </script>
 
@@ -8,15 +30,15 @@
         <div class="main-container">
             <div class="login-container">
             <h2>Connexion</h2>
-            <form>
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
+            <form @submit.prevent="submit">
+                <input type="email" v-model="userEmail" placeholder="Votre email" required>
+                <input type="password" v-model="password" placeholder="Password" required>
                 <div class="remember-me">
                     <input type="checkbox" id="remember">
                     <label for="remember">Remember me</label>
                 </div>
-                <RouterLink to="/dashboard">Se connecter</RouterLink>
-                <!-- <button type="submit">LOGIN</button> -->
+                <!-- <RouterLink to="/dashboard">Se connecter</RouterLink> -->
+                <button type="submit">LOGIN</button>
             </form>
             <div class="forgot-password">
                 <a href="#">Mot de passe oublier?</a>
@@ -55,7 +77,7 @@
             text-align: center;
             margin-bottom: 30px;
         }
-        input[type="text"], input[type="password"] {
+        input[type="email"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -64,7 +86,7 @@
             background: rgba(255, 255, 255, 0.2);
             color: white;
         }
-        input[type="text"]::placeholder, input[type="password"]::placeholder {
+        input[type="email"]::placeholder, input[type="password"]::placeholder {
             color: rgba(255, 255, 255, 0.7);
         }
         button {
