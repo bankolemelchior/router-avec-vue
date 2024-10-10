@@ -13,10 +13,10 @@
                 <input type="email" placeholder="Email" required>
                 <input type="password" placeholder="Password" required>
                 <input type="password" placeholder="Confirm Password" required>
-                <button type="submit">SIGN UP</button>
+                <button type="submit">Créer mon compte</button>
             </form>
             <div class="login-link">
-                <p>Already have an account? <a href="login.html">Login</a></p>
+                <p>Already have an account? <RouterLink to="/login">Login</RouterLink></p>
             </div>
                </div>
        </div>

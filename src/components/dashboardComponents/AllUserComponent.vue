@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Liste des utilisateurs</h1>
     <table>
       <thead>
         <tr>
