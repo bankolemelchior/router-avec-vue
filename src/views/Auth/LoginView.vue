@@ -2,7 +2,9 @@
 import {onMounted, ref} from 'vue'
 import { useRouter } from 'vue-router'
 
-const router = useRouter();
+//Création d'une instance de useRouter
+const router = useRouter()
+console.log(router);
 
 const user = ref(null)
 const userEmail = ref('');
@@ -11,7 +13,7 @@ const userExist = ref(false);
 const data = ref([]);
 
 async function fetchUser() {
-  const resp = await fetch('/user-data.json');
+  const resp = await fetch('http://localhost:5173/src/assets/user-data.json');
    data.value = await resp.json();
 //   console.log(data.value);
 
@@ -28,7 +30,16 @@ async function fetchUser() {
     //Etape2: Vérification du mot de passe entré par l'utilisateu
   if(user.value.length >0) {//Cette ligne vérifie si le user existe c'est-à-dire notre tableau user.value n'est pas vide
     if(password.value == user.value[0].password) {//vérification du mot de passe
-        // router.push('/dashboard');
+        if(user.value[0].isAdmin == true) {
+            router.push({name: 'dashboard', params:{user: user.value[0].nom}});
+            console.log(user.value[0].nom);
+            
+            // router.push('/dashboard');
+            // router.replace('/dashboard')
+
+        }else {
+            router.push('/agent');
+        }
     }
 }
     

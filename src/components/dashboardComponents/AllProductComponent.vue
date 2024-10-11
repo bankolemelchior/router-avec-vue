@@ -29,8 +29,8 @@ import { onMounted, ref } from 'vue';
 
 const products = ref([])
 
-async function fetchProduct() {
-  const resp = await fetch('/products-data.json')
+async function fetchProduct() {  
+  const resp = await fetch('http://localhost:5173/src/assets/products-data.json');
   products.value = await resp.json()
   console.log(products.value)
   

@@ -1,4 +1,28 @@
-<script setup lang='ts'></script>
+<script setup lang='ts'>
+import { onMounted } from 'vue';
+import { useRouter, useRoute, onBeforeRouteLeave } from 'vue-router'
+
+//Création d'une instance de useRouter
+const router = useRouter();
+const route = useRoute();
+
+//Fonction de deconnexion
+function disconnect() {
+    router.replace('/login');
+}
+
+onBeforeRouteLeave ((to, from) => {
+const answer = window.confirm('Do you really want to leave? you have unsaved changes!')
+  if (!answer) return false
+
+}) 
+
+onMounted(() => {
+    console.log(route.params);
+    
+})
+
+</script>
 
 
 <template>
@@ -48,7 +72,7 @@
               <div class="menu-icon">🔔</div>
               <span class="menu-label">Notifications</span>
           </div>
-          <!-- <div class="menu-item">
+          <div class="menu-item">
               <div class="menu-icon">🧩</div>
               <span class="menu-label">Widgets</span>
               <span class="new-badge">NEW</span>
@@ -60,9 +84,15 @@
           </div>
           <div class="menu-item">
               <div class="menu-icon">📚</div>
-              <span class="menu-label">Docs</span>
-          </div> -->
+              <!-- <RouterLink to="/login" class="menu-label">Deconnexion</RouterLink > -->
+                <button @click="disconnect">Deconnexion</button>
+          </div>
           <!-- <div class="pro-button">Try  PRO</div> -->
+      </div>
+
+      <div>
+        <h1>Bienvenue, administrateur</h1>
+        <strong class="admin-name">{{ $route.params.user }}</strong>
       </div>
   
       <RouterView />
@@ -153,4 +183,12 @@ body, html {
           }
           .flex {
             display: flex;
-        }</style>
+        }
+
+        .admin-name {
+            color: #4587ff;
+            font-size: 2rem;
+            font-weight: bolder;
+        }
+        
+        </style>
