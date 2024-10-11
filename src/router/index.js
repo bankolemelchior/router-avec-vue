@@ -21,6 +21,7 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
+      meta: { requiresAuth: true },
       component: () => import('../views/DashboardView.vue'),
       // beforeEnter: (to, from, next) => {
       //   console.log("to", to);
