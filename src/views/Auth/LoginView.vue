@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter();
@@ -7,21 +7,43 @@ const router = useRouter();
 const user = ref(null)
 const userEmail = ref('');
 const password = ref('');
+const userExist = ref(false);
+const data = ref([]);
 
 async function fetchUser() {
   const resp = await fetch('/user-data.json');
-  const data = await resp.json();
-  console.log(data);
-  user.value = data.filter(el => el.email == userEmail.value)
-  console.log(user.value )
-  
+   data.value = await resp.json();
+//   console.log(data.value);
+
+}
+
+//Fonction qui connnecte l'utilisateur
+
+//Récupération du user à partir de l'email entrée
+//Si le user existe, on vérifie le mot de passe
+ function connectUser() {
+    //Etape1: Récupération du user et on stock ces info dans la variable user déclarée plus haut
+    user.value =  data.value.filter(el => el.email == userEmail.value)
+    console.log(user.value)
+    //Etape2: Vérification du mot de passe entré par l'utilisateu
+  if(user.value.length >0) {//Cette ligne vérifie si le user existe c'est-à-dire notre tableau user.value n'est pas vide
+    if(password.value == user.value[0].password) {//vérification du mot de passe
+        // router.push('/dashboard');
+    }
+}
+    
 }
 
 function submit() {
+    connectUser();
     console.log(userEmail.value);
-    router.push('/dashboard');
-    fetchUser();
+    console.log(password.value);
+    // router.push('/dashboard');
 }
+
+onMounted(() => {
+    fetchUser();
+})
 
 </script>
 

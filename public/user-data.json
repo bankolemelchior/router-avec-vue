@@ -29,5 +29,5 @@
   { "id":28 , "nom":"Bastien Morel" , "email":"bastien.morel@example.com" , "age":35, "password": "@bcd"},
   { "id":29 , "nom":"Céline Richard" , "email":"celine.richard@example.com" , "age":31, "password": "@bcd"},
   { "id":30 , "nom":"Doriane Lemoine" , "email":"doriane.lemoine@example.com" , "age":27, "password": "@bcd"},
-  { "id":31 , "nom":"Alpha Bravo" , "email":"bravo@example.com" , "age":27}
+  { "id":31 , "nom":"Alpha Bravo" , "email":"bravo@example.com" , "age":27, "password": "@bcd"}
 ]
