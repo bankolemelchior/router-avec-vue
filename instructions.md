@@ -1,0 +1,5 @@
+-- Créer un nouveau projet vue (avec vue-router installé)
+-- Dans le dossier views, créez un nouveau dossier "Auth"
+-- Dans le dossier Auth, créez les composants LoginView (pour la page de connexion) et SignUpView (pour la page d'inscription)
+-- lorsque la route est vide ou est /login, afficher la page de connexion
+-- lorsque la route est /sign-up, afficher la page d'inscription

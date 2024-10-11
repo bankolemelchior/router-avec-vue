@@ -1,11 +1,14 @@
 <template>
   <div>
+    <h1>Liste des utilisateurs</h1>
     <table>
       <thead>
-        <th>Nom</th>
-        <th>Email</th>
-        <th>Age</th>
-        <th>Action</th>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Action</th>
+        </tr>
       </thead>
       <tbody>
         <tr v-for="user in users" :key="user.id">
